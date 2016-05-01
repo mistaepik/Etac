@@ -29,4 +29,4 @@ version: 1.0.0
 Published: 1-29-2016
  
 Author's website:
-jeancbarrera.weebly.com
+www.jeancbarrera.weebly.com
