@@ -1,0 +1,158 @@
+/* Etac (Estimated Time of Arrival Calculator)
+ * An Application which calculates the duration of a trip,
+ * Miles/Kilometers traveled, and/or average speed.
+ * 
+ * @author : Jean C. Barrera
+ * @version : R0.P0
+ * @since : 1-29-2016
+ */
+
+//Import necessary package members
+import javax.swing.JOptionPane;
+
+//Class with main method
+public class Etac
+{
+  public static void main (String[] args)
+  {
+    //User Input Variables (Before parsing)
+    String timeInStr;
+    String speedInStr;
+    String distanceInStr;
+    
+    //User Input Variables (After parsing)
+    float timeIn;
+    float speedIn;
+    float distanceIn;
+    
+    //User Selection Variables
+    String userSelect;
+    
+    //User Feedback Variables
+    float result;
+    
+    //Comparison Variables
+    final String selectTime = ("time");
+    final String selectSpeed = ("speed");
+    final String selectDistance = ("distance");
+    
+    /* Developer's Note:
+     * For the time being the User will input the name of their selection
+     * into the userSelect variable through a joptionpane input dialog.
+     * this will eventually be changed from an input dialog to a single
+     * combobox to reduce the ammount of possible user errors and to
+     * keep the number of windows to a minimum.
+     */
+    
+    //Get Function Selection from User
+    userSelect = JOptionPane.showInputDialog ("Calculate time, speed, or distance");
+    
+    //Determine the Logic Path (Which selection did the User make)
+    
+    //Time Calculation Logic Path
+    if((userSelect) .equals (selectTime))
+    {
+      //Get Distance
+      distanceInStr = JOptionPane.showInputDialog ("Please enter the total distance traveled.");
+      
+      //Parse distanceInStr
+      distanceIn = Float.parseFloat(distanceInStr);
+      
+      //Get Speed
+      speedInStr = JOptionPane.showInputDialog ("Please enter the average speed traveled.");
+      
+      //Parse speedInStr
+      speedIn = Float.parseFloat(speedInStr);
+      
+      //Arithmetic
+      result = distanceIn / speedIn;
+      
+        //Feedback results to User
+        JOptionPane.showMessageDialog (null, result + " Hours Spent");
+    }
+    
+    //Speed Calculation Logic Path
+    else if((userSelect) .equals (selectSpeed))
+    {
+      //Get Distance
+      distanceInStr = JOptionPane.showInputDialog ("Please enter the total distance traveled.");
+      
+      //Parse distanceInStr
+      distanceIn = Float.parseFloat(distanceInStr);
+      
+      //Get Time
+      timeInStr = JOptionPane.showInputDialog ("Please enter the number of hours traveled.");
+      
+      //Parse timeInStr
+      timeIn = Float.parseFloat(timeInStr);
+      
+      //Arithmetic
+      result = distanceIn / timeIn;
+        
+        //Feedback results to User
+        JOptionPane.showMessageDialog (null, result + " Mph/Kph (Average)");
+    }
+   
+    //Distance Calculation Logic Path
+    else if ((userSelect) .equals (selectDistance))
+    {
+      //Get Speed
+      speedInStr = JOptionPane.showInputDialog ("Please enter the average speed traveled.");
+      
+      //Parse speedInStr
+      speedIn = Float.parseFloat(speedInStr);
+      
+      //Get Time
+      timeInStr = JOptionPane.showInputDialog ("Please enter the number of hours traveled.");
+      
+      //Parse timeInStr
+      timeIn = Float.parseFloat(timeInStr);
+      
+      //Arithmetic
+      result = speedIn * timeIn;
+      
+        //Feedback results to User
+        JOptionPane.showMessageDialog (null, result + " Miles/Kilometers Traveled");
+    }
+    
+    else
+      JOptionPane.showMessageDialog (null, "Please enter a valid command");    
+  } 
+}
+
+/*Copyright © Jean C. Barrera 2016
+All Rights Reserved. You may use, distribute and modify this code under the terms of the following license. 
+
+Distributed is defined as follows:
+Transmitted in any form or by any means, including photocopying, recording, or 
+other electronic or mechanical methods) 
+
+Modified is defined as follows:
+To make changes of any kind by any means electronic or otherwise, including partial changes, or 
+partial or total exclusion or deletion of/to any text, images or other included files.
+
+First and foremost this code may not be used for commercial purposes without the excplicit written permission of 
+the author. Distributed copies of this code either in part or whole, must retain this unmodified LICENSE.txt file 
+and all unmodified instances of this notice/license. This notice and the included LICENSE.txt file may not be removed 
+or modified without the prior written permission of the author, except in the case of brief quotations 
+embodied in critical reviews and certain other noncommercial uses permitted by copyright law. 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+For permission requests, write to the author, addressed “Attention: Permissions Coordinator,” 
+at the address below.
+
+Author's Contact Adress:
+jeancbarrera@programmer.net
+
+author: Jean C. Barrera
+version: 1.0.0
+Published: 1-29-2016
+ 
+Author's website
+jeancbarrera.weebly.com
+*/
